@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { phrases } from './data';
 import './App.css';
 
@@ -21,6 +21,35 @@ function App() {
     setShuffledPhrases(phrases);
     setUserChoices(new Array(phrases.length).fill(null));
   }, []);
+
+  const handlePrevious = useCallback(() => {
+    if (currentIndex > 0) {
+      setCurrentIndex(prev => prev - 1);
+      setIsFlipped(false);
+      setClickedButton(userChoices[currentIndex - 1]);
+    }
+  }, [currentIndex, userChoices]);
+
+  const handleNext = useCallback(() => {
+    if (currentIndex < shuffledPhrases.length - 1) {
+      setCurrentIndex(prev => prev + 1);
+      setIsFlipped(false);
+      setClickedButton(userChoices[currentIndex + 1]);
+    }
+  }, [currentIndex, shuffledPhrases.length, userChoices]);
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === 'ArrowLeft') {
+        handlePrevious();
+      } else if (event.key === 'ArrowRight') {
+        handleNext();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [handlePrevious, handleNext]);
 
   const handleCardClick = () => {
     setIsFlipped(!isFlipped);
@@ -58,22 +87,6 @@ function App() {
     setClickedButton(null);
   };
 
-  const handlePrevious = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
-      setIsFlipped(false);
-      setClickedButton(userChoices[currentIndex - 1]);
-    }
-  };
-
-  const handleNext = () => {
-    if (currentIndex < shuffledPhrases.length - 1) {
-      setCurrentIndex(currentIndex + 1);
-      setIsFlipped(false);
-      setClickedButton(userChoices[currentIndex + 1]);
-    }
-  };
-
   if (shuffledPhrases.length === 0) {
     return <div className="loading">Загрузка...</div>;
   }
@@ -99,7 +112,7 @@ function App() {
       
       <div className="progress">
         <span>Карточка {currentIndex + 1} из {shuffledPhrases.length}</span>
-        <span>Правильных ответов: {guessedCount}</span>
+        <span>Счет: {guessedCount}</span>
       </div>
 
       <div className="card-container">

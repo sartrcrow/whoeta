@@ -8,6 +8,8 @@ function App() {
   const [guessedCount, setGuessedCount] = useState(0);
   const [shuffledPhrases, setShuffledPhrases] = useState([]);
   const [isComplete, setIsComplete] = useState(false);
+  const [clickedButton, setClickedButton] = useState(null);
+  const [userChoices, setUserChoices] = useState([]);
 
   const getRandomPhrases = () => {
     const shuffled = [...phrases].sort(() => Math.random() - 0.5);
@@ -15,7 +17,9 @@ function App() {
   };
 
   useEffect(() => {
-    setShuffledPhrases(getRandomPhrases());
+    const phrases = getRandomPhrases();
+    setShuffledPhrases(phrases);
+    setUserChoices(new Array(phrases.length).fill(null));
   }, []);
 
   const handleCardClick = () => {
@@ -23,6 +27,11 @@ function App() {
   };
 
   const handleGuess = (isCorrect) => {
+    const newChoices = [...userChoices];
+    newChoices[currentIndex] = isCorrect ? 'correct' : 'incorrect';
+    setUserChoices(newChoices);
+    setClickedButton(isCorrect ? 'correct' : 'incorrect');
+    
     if (isCorrect) {
       setGuessedCount(guessedCount + 1);
     }
@@ -31,6 +40,7 @@ function App() {
       if (currentIndex < shuffledPhrases.length - 1) {
         setCurrentIndex(currentIndex + 1);
         setIsFlipped(false);
+        setClickedButton(null);
       } else {
         setIsComplete(true);
       }
@@ -38,17 +48,21 @@ function App() {
   };
 
   const handleRestart = () => {
-    setShuffledPhrases(getRandomPhrases());
+    const phrases = getRandomPhrases();
+    setShuffledPhrases(phrases);
+    setUserChoices(new Array(phrases.length).fill(null));
     setCurrentIndex(0);
     setIsFlipped(false);
     setGuessedCount(0);
     setIsComplete(false);
+    setClickedButton(null);
   };
 
   const handlePrevious = () => {
     if (currentIndex > 0) {
       setCurrentIndex(currentIndex - 1);
       setIsFlipped(false);
+      setClickedButton(userChoices[currentIndex - 1]);
     }
   };
 
@@ -56,6 +70,7 @@ function App() {
     if (currentIndex < shuffledPhrases.length - 1) {
       setCurrentIndex(currentIndex + 1);
       setIsFlipped(false);
+      setClickedButton(userChoices[currentIndex + 1]);
     }
   };
 
@@ -76,6 +91,7 @@ function App() {
   }
 
   const currentPhrase = shuffledPhrases[currentIndex];
+  const currentChoice = userChoices[currentIndex];
 
   return (
     <div className="container">
@@ -91,6 +107,7 @@ function App() {
           {!isFlipped ? (
             <div className="card-front">
               <p>{currentPhrase.phrase}</p>
+              <span className="hint">Кликни, чтобы узнать автора</span>
             </div>
           ) : (
             <div className="card-back">
@@ -120,13 +137,15 @@ function App() {
           <div className="guess-buttons">
             <button 
               onClick={() => handleGuess(true)} 
-              className="guess-button correct"
+              className={`guess-button correct ${currentChoice === 'correct' ? 'active' : ''}`}
+              disabled={currentChoice === 'incorrect'}
             >
               Угадал
             </button>
             <button 
               onClick={() => handleGuess(false)} 
-              className="guess-button incorrect"
+              className={`guess-button incorrect ${currentChoice === 'incorrect' ? 'active' : ''}`}
+              disabled={currentChoice === 'correct'}
             >
               Забыл
             </button>

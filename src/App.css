@@ -1,5 +1,5 @@
 .container {
-  max-width: 800px;
+  max-width: 600px;
   margin: 0 auto;
   padding: 80px;
   font-family: Arial, sans-serif;
@@ -9,7 +9,7 @@
 }
 
 h1 {
-  color: #2c3e50;
+  color: #1a1a1a;
   margin-bottom: 30px;
 }
 
@@ -18,7 +18,7 @@ h1 {
   justify-content: space-between;
   margin-bottom: 20px;
   font-size: 18px;
-  color: #666;
+  color: #1a1a1a;
 }
 
 .card-container {
@@ -33,7 +33,7 @@ h1 {
 
 .card {
   width: 100%;
-  /* height: fit-content; */
+  height: fit-content;
   cursor: pointer;
   display: flex;
   align-items: flex-start;
@@ -42,7 +42,7 @@ h1 {
 
 .card-inner {
   width: 100%;
-  /* height: 100%; */
+  height: 100%;
   text-align: center;
   display: flex;
   align-items: flex-start;
@@ -52,13 +52,19 @@ h1 {
 .card-front,
 .card-back {
   width: 100%;
-  /* height: 100%; */
+  height: 140px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.card-front,
+.card-back p {
+  text-wrap: balance;
 }
 
 .card-front {
@@ -67,9 +73,15 @@ h1 {
 }
 
 .card-back {
-  background-color: #5e0e90;
-  color: #fff;
+  background-color: #fff;
+  color: #1a1a1a;
   font-size: 20px;
+}
+
+.hint {
+  font-size: 14px;
+  color: #666;
+  margin-top: 10px;
 }
 
 .navigation-buttons {
@@ -82,15 +94,15 @@ h1 {
   padding: 10px 20px;
   font-size: 16px;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
-  background-color: #3498db;
+  background-color: #6B7280;
   color: #fff;
   transition: all 0.3s;
 }
 
 .nav-button:hover:not(:disabled) {
-  background-color: #2980b9;
+  background-color: #4B5563;
 }
 
 .nav-button:disabled {
@@ -108,41 +120,60 @@ h1 {
   padding: 10px 30px;
   font-size: 16px;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
-  color: #fff;
+  color: #1a1a1a;
+  background-color: #fff;
   transition: all 0.3s;
+  border: 1px solid #E5E7EB;
+}
+
+.guess-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
 }
 
 .guess-button.correct {
-  background-color: #27ae60;
+  background-color: #fff;
+  border: 1px solid #E5E7EB;
 }
 
-.guess-button.correct:hover {
-  background-color: #219a52;
+.guess-button.correct:hover:not(:disabled) {
+  background-color: #F9FAFB;
+}
+
+.guess-button.correct.active {
+  background-color: #F9FAFB;
+  transform: scale(0.98);
 }
 
 .guess-button.incorrect {
-  background-color: #e74c3c;
+  background-color: #fff;
+  border: 1px solid #E5E7EB;
 }
 
-.guess-button.incorrect:hover {
-  background-color: #c0392b;
+.guess-button.incorrect:hover:not(:disabled) {
+  background-color: #F9FAFB;
+}
+
+.guess-button.incorrect.active {
+  background-color: #F9FAFB;
+  transform: scale(0.98);
 }
 
 .restart-button {
   padding: 15px 30px;
   font-size: 18px;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
-  background-color: #e74c3c;
+  background-color: #111827;
   color: #fff;
   transition: background-color 0.3s;
 }
 
 .restart-button:hover {
-  background-color: #c0392b;
+  background-color: #1F2937;
 }
 
 .loading {
@@ -151,5 +182,5 @@ h1 {
   align-items: center;
   height: 100vh;
   font-size: 24px;
-  color: #666;
+  color: #1a1a1a;
 } 

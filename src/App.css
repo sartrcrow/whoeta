@@ -1,0 +1,155 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 80px;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  color: #2c3e50;
+  margin-bottom: 30px;
+}
+
+.progress {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: #666;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+  /* min-height: 300px; */
+  justify-content: flex-start;
+}
+
+.card {
+  width: 100%;
+  /* height: fit-content; */
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.card-inner {
+  width: 100%;
+  /* height: 100%; */
+  text-align: center;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.card-front,
+.card-back {
+  width: 100%;
+  /* height: 100%; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.card-front {
+  background-color: #fff;
+  font-size: 20px;
+}
+
+.card-back {
+  background-color: #5e0e90;
+  color: #fff;
+  font-size: 20px;
+}
+
+.navigation-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.nav-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #3498db;
+  color: #fff;
+  transition: all 0.3s;
+}
+
+.nav-button:hover:not(:disabled) {
+  background-color: #2980b9;
+}
+
+.nav-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.guess-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.guess-button {
+  padding: 10px 30px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #fff;
+  transition: all 0.3s;
+}
+
+.guess-button.correct {
+  background-color: #27ae60;
+}
+
+.guess-button.correct:hover {
+  background-color: #219a52;
+}
+
+.guess-button.incorrect {
+  background-color: #e74c3c;
+}
+
+.guess-button.incorrect:hover {
+  background-color: #c0392b;
+}
+
+.restart-button {
+  padding: 15px 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #e74c3c;
+  color: #fff;
+  transition: background-color 0.3s;
+}
+
+.restart-button:hover {
+  background-color: #c0392b;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 24px;
+  color: #666;
+} 

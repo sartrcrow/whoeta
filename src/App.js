@@ -64,16 +64,6 @@ function App() {
     if (isCorrect) {
       setGuessedCount(guessedCount + 1);
     }
-    
-    setTimeout(() => {
-      if (currentIndex < shuffledPhrases.length - 1) {
-        setCurrentIndex(currentIndex + 1);
-        setIsFlipped(false);
-        setClickedButton(null);
-      } else {
-        setIsComplete(true);
-      }
-    }, 1000);
   };
 
   const handleRestart = () => {
@@ -108,7 +98,7 @@ function App() {
 
   return (
     <div className="container">
-      <h1>Угадай, кто сказал</h1>
+      <h1>Угадай, кто из дизайнеров это сказал</h1>
       
       <div className="progress">
         <span>Карточка {currentIndex + 1} из {shuffledPhrases.length}</span>
@@ -164,6 +154,10 @@ function App() {
             </button>
           </div>
         )}
+      </div>
+      <div className="footer">
+        <p>Листать карточки можно с помощью ← и → стрелок на клавиатуре</p>
+        <p>Сделано с любовью и исключительно фо фан</p>
       </div>
     </div>
   );

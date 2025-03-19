@@ -100,10 +100,10 @@ function App() {
           colors={['#FFD700', '#FFA500', '#FF69B4', '#87CEEB', '#98FB98']}
           style={{ position: 'fixed', top: 0, left: 0, pointerEvents: 'none' }}
         />
-        <h1>Игра завершена!</h1>
-        <p>Правильных ответов: {guessedCount} из {shuffledPhrases.length}</p>
+        <h1>Типа закончились карточки</h1>
+        <p>Угадано: {guessedCount} из {shuffledPhrases.length}</p>
         <button onClick={handleRestart} className="restart-button">
-          Начать заново
+          Начать заново? Да!
         </button>
       </div>
     );
@@ -115,7 +115,7 @@ function App() {
   return (
     <div className="app">
       <div className="container">
-        <h1>Угадай, кто из дизайнеров это сказал</h1>
+        <h1>Угадай, who это сказал</h1>
         
         <div className="progress">
           <span>Карточка {currentIndex + 1} из {shuffledPhrases.length}</span>
@@ -134,23 +134,6 @@ function App() {
                 <p>{currentPhrase.author}</p>
               </div>
             )}
-          </div>
-
-          <div className="navigation-buttons">
-            <button 
-              onClick={handlePrevious} 
-              className="nav-button"
-              disabled={currentIndex === 0}
-            >
-              Предыдущая
-            </button>
-            <button 
-              onClick={handleNext} 
-              className="nav-button"
-              disabled={currentIndex === shuffledPhrases.length - 1}
-            >
-              Следующая
-            </button>
           </div>
 
           {isFlipped && (
@@ -173,6 +156,22 @@ function App() {
           )}
         </div>
         <div className="footer">
+          <div className="navigation-buttons">
+            <button 
+              onClick={handlePrevious} 
+              className="nav-button"
+              disabled={currentIndex === 0}
+            >
+              ←
+            </button>
+            <button 
+              onClick={handleNext} 
+              className="nav-button"
+              disabled={currentIndex === shuffledPhrases.length - 1}
+            >
+              →
+            </button>
+          </div>
           <p>Листать карточки можно с помощью ← и → стрелок на клавиатуре</p>
           <p>Сделано с любовью и исключительно фо фан</p>
         </div>

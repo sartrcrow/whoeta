@@ -1,3 +1,5 @@
+@import './index.css';
+
 .container {
   max-width: 600px;
   margin: 0 auto;
@@ -61,6 +63,7 @@ h1 {
   flex-direction: column;
   align-items: center;
   padding: 20px 30px;
+  transition: all 0.3s;
   box-shadow: rgb(19, 19, 19) 8px 8px 0px 0px;
   border: 4px solid #000;
 
@@ -112,12 +115,12 @@ h1 {
 }
 
 .nav-button:hover:not(:disabled) {
-  background-color: #FF6C61;
+  background-color: var(--secondary-color);
 }
 
 .nav-button:disabled {
   cursor: not-allowed;
-  opacity: 0.5;
+  opacity: 0.4;
 } */
 
 .guess-buttons {
@@ -131,42 +134,50 @@ h1 {
   font-size: 16px;
   font-weight: 600;
   border: 4px solid #000;
-  /* border-radius: 8px; */
   cursor: pointer;
   color: #000;
   background-color: #FF8177;
   transition: all 0.3s;
+  box-shadow: rgb(19, 19, 19) 4px 4px 0px 0px;
 }
 
 .guess-button:disabled {
   cursor: not-allowed;
-  opacity: 0.5;
+  opacity: 0.4;
 }
 
 .guess-button.correct {
-  background-color: #FF8177;
+  background-color: var(--primary-color);
   border: 4px solid #000;
 }
 
 .guess-button.correct:hover:not(:disabled) {
-  background-color: #FF6C61;
+  background-color: var(--secondary-color);
+  transform: translate(2px, 2px);
+  box-shadow: rgb(19, 19, 19) 2px 2px 0px 0px;
 }
 
 .guess-button.correct.active {
-  background-color: #FF6C61;
+  background-color: var(--secondary-color);
+  transform: translate(2px, 2px);
+  box-shadow: rgb(19, 19, 19) 2px 2px 0px 0px;
 }
 
 .guess-button.incorrect {
-  background-color: #FF8177;
+  background-color: var(--primary-color);
   border: 4px solid #000;
 }
 
 .guess-button.incorrect:hover:not(:disabled) {
-  background-color: #FF6C61;
+  background-color: var(--secondary-color);
+  transform: translate(2px, 2px);
+  box-shadow: rgb(19, 19, 19) 2px 2px 0px 0px;
 }
 
 .guess-button.incorrect.active {
-  background-color: #FF6C61;
+  background-color: var(--secondary-color);
+  transform: translate(2px, 2px);
+  box-shadow: rgb(19, 19, 19) 2px 2px 0px 0px;
 }
 
 .restart-button {
@@ -174,13 +185,23 @@ h1 {
   font-size: 32px;
   border: 4px solid #000;
   cursor: pointer;
-  background-color: #FF8177;
+  background-color: var(--primary-color);
   color: #000;
-  transition: background-color 0.3s;
+  transition: all 0.3s;
+  box-shadow: rgb(19, 19, 19) 8px 8px 0px 0px;
 }
 
 .restart-button:hover {
-  background-color: #FF6C61;
+  background-color: var(--secondary-color);
+  transform: translate(4px, 4px);
+  box-shadow: rgb(19, 19, 19) 4px 4px 0px 0px;
+}
+
+.guessed-count {
+  font-size: 24px;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 20px;
 }
 
 .loading {
@@ -199,7 +220,7 @@ h1 {
   right: 0;
   padding: 20px;
   text-align: center;
-  background-color: #FF8177;
+  background-color: var(--primary-color);
   border-top: 4px solid #000;
 }
 
@@ -214,29 +235,39 @@ h1 {
   padding: 20px 40px;
   font-size: 32px;
   color: #000;
-  background-color: #FF8177;
+  background-color: var(--primary-color);
   border: 4px solid #000;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: all 0.3s;
+  box-shadow: rgb(19, 19, 19) 4px 4px 0px 0px;
 }
 
 .footer .nav-button:hover:not(:disabled) {
-  background-color: #FF6C61;
+  background-color: var(--secondary-color);
+  transform: translate(2px, 2px);
+  box-shadow: rgb(19, 19, 19) 2px 2px 0px 0px;
+}
+
+.footer .nav-button:active:not(:disabled) {
+  transform: translate(2px, 2px);
+  box-shadow: rgb(19, 19, 19) 2px 2px 0px 0px;
 }
 
 .footer .nav-button:disabled {
   cursor: not-allowed;
-  opacity: 0.5;
+  opacity: 0.4;
 }
 
 .footer p {
   margin: 16px 0;
   color: #000;
   font-size: 16px;
+  font-weight: 600;
 }
 
 .footer p:last-child {
   margin-top: 40px;
   color: #000;
   font-size: 16px;
+  font-weight: 400;
 } 

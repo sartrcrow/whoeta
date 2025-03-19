@@ -101,7 +101,7 @@ function App() {
           style={{ position: 'fixed', top: 0, left: 0, pointerEvents: 'none' }}
         />
         <h1>Типа закончились карточки</h1>
-        <p>Угадано: {guessedCount} из {shuffledPhrases.length}</p>
+        <p className="guessed-count">Угадано: {guessedCount} из {shuffledPhrases.length}</p>
         <button onClick={handleRestart} className="restart-button">
           Начать заново? Да!
         </button>

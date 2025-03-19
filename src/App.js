@@ -14,6 +14,7 @@ function App() {
   const [userChoices, setUserChoices] = useState([]);
   const [showAgutinMeme, setShowAgutinMeme] = useState(false);
   const [isAgutinLeaving, setIsAgutinLeaving] = useState(false);
+  const [luckyNumber, setLuckyNumber] = useState(null);
 
   const getRandomPhrases = () => {
     const shuffled = [...phrases].sort(() => Math.random() - 0.5);
@@ -24,6 +25,7 @@ function App() {
     const phrases = getRandomPhrases();
     setShuffledPhrases(phrases);
     setUserChoices(new Array(phrases.length).fill(null));
+    setLuckyNumber(Math.floor(Math.random() * 5) + 1);
   }, []);
 
   const handlePrevious = useCallback(() => {
@@ -65,10 +67,11 @@ function App() {
     setUserChoices(newChoices);
     setClickedButton(isCorrect ? 'correct' : 'incorrect');
     
-    // Показываем мем при первом правильном ответе
     if (isCorrect && userChoices[currentIndex] === null) {
-      setGuessedCount(guessedCount + 1);
-      if (guessedCount === 0) {
+      const newGuessedCount = guessedCount + 1;
+      setGuessedCount(newGuessedCount);
+      
+      if (newGuessedCount === luckyNumber) {
         setShowAgutinMeme(true);
         setIsAgutinLeaving(false);
       }
@@ -97,6 +100,7 @@ function App() {
     setGuessedCount(0);
     setIsComplete(false);
     setClickedButton(null);
+    setLuckyNumber(Math.floor(Math.random() * 5) + 1);
   };
 
   if (shuffledPhrases.length === 0) {
@@ -146,7 +150,10 @@ function App() {
         </div>
 
         <div className="card-container">
-          <div className="card" onClick={handleCardClick}>
+          <div 
+            className="card" 
+            onClick={handleCardClick}
+          >
             {!isFlipped ? (
               <div className="card-front">
                 <p>{currentPhrase.phrase}</p>

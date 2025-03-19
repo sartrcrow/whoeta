@@ -62,7 +62,8 @@ function App() {
     setUserChoices(newChoices);
     setClickedButton(isCorrect ? 'correct' : 'incorrect');
     
-    if (isCorrect) {
+    // Увеличиваем счетчик только если это первый выбор для этой карточки
+    if (isCorrect && userChoices[currentIndex] === null) {
       setGuessedCount(guessedCount + 1);
     }
 
@@ -143,14 +144,14 @@ function App() {
                 className={`guess-button correct ${currentChoice === 'correct' ? 'active' : ''}`}
                 disabled={currentChoice === 'incorrect'}
               >
-                Угадал
+                Даааа ДАААА ДАВАЙ! Угадал(-а)!
               </button>
               <button 
                 onClick={() => handleGuess(false)} 
                 className={`guess-button incorrect ${currentChoice === 'incorrect' ? 'active' : ''}`}
                 disabled={currentChoice === 'correct'}
               >
-                Забыл
+                Не угадал(-а)
               </button>
             </div>
           )}
@@ -172,7 +173,7 @@ function App() {
               →
             </button>
           </div>
-          <p>Листать карточки можно с помощью ← и → стрелок на клавиатуре</p>
+          <p>Ещё карточки можно листать стрелками ← и → на клавиатуре</p>
           <p>Сделано с любовью и исключительно фо фан</p>
         </div>
       </div>

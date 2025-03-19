@@ -8,9 +8,10 @@ body {
   margin: 0;
   padding: 0;
   background-color: var(--primary-color);
-  font-family: -apple-system, 'Roboto Mono', 'Fira Code', monospace;
+  font-family: 'Roboto Mono', 'Fira Code', monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-wrap: balance;
 }
 
 code {

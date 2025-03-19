@@ -385,4 +385,40 @@ button {
 .card.sliding-right .card-front,
 .card.sliding-right .card-back {
   animation: slideRight 0.5s ease-in-out;
+}
+
+.sad-meme {
+  position: fixed;
+  left: 0;
+  bottom: -100%;
+  z-index: 1000;
+  width: 300px;
+  height: auto;
+  cursor: pointer;
+}
+
+.sad-meme.slide-up-left {
+  animation: slideUpLeft 0.5s ease-in-out forwards;
+}
+
+.sad-meme.slide-down-left {
+  animation: slideDownLeft 0.5s ease-in-out forwards;
+}
+
+@keyframes slideUpLeft {
+  0% {
+    bottom: -100%;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+
+@keyframes slideDownLeft {
+  0% {
+    bottom: 0;
+  }
+  100% {
+    bottom: -100%;
+  }
 } 

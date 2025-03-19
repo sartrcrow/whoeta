@@ -3,6 +3,7 @@ import ReactConfetti from 'react-confetti';
 import { phrases } from './data';
 import './App.css';
 import agutinMeme from './images/agutin.jpg';
+import sadMeme from './images/sad-meme.png';
 
 function App() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -13,6 +14,7 @@ function App() {
   const [clickedButton, setClickedButton] = useState(null);
   const [userChoices, setUserChoices] = useState([]);
   const [showAgutinMeme, setShowAgutinMeme] = useState(false);
+  const [showSadMeme, setShowSadMeme] = useState(false);
   const [isAgutinLeaving, setIsAgutinLeaving] = useState(false);
   const [luckyNumber, setLuckyNumber] = useState(null);
 
@@ -62,24 +64,33 @@ function App() {
   };
 
   const handleGuess = (isCorrect) => {
-    const newChoices = [...userChoices];
-    newChoices[currentIndex] = isCorrect ? 'correct' : 'incorrect';
-    setUserChoices(newChoices);
-    setClickedButton(isCorrect ? 'correct' : 'incorrect');
-    
-    if (isCorrect && userChoices[currentIndex] === null) {
-      const newGuessedCount = guessedCount + 1;
-      setGuessedCount(newGuessedCount);
+    if (!clickedButton) {
+      // Сохраняем выбор пользователя
+      const newChoices = [...userChoices];
+      newChoices[currentIndex] = isCorrect ? 'correct' : 'incorrect';
+      setUserChoices(newChoices);
       
-      if (newGuessedCount === luckyNumber) {
-        setShowAgutinMeme(true);
-        setIsAgutinLeaving(false);
+      setClickedButton(isCorrect ? 'correct' : 'incorrect');
+      
+      // Увеличиваем счетчик только если это первый правильный ответ
+      if (isCorrect && userChoices[currentIndex] === null) {
+        setGuessedCount(prevCount => prevCount + 1);
+        // 30% шанс показать мем при правильном ответе
+        if (Math.random() < 0.3) {
+          setShowAgutinMeme(true);
+        }
+      } else if (!isCorrect) {
+        // 30% шанс показать грустный мем при неправильном ответе
+        if (Math.random() < 0.3) {
+          setShowSadMeme(true);
+        }
       }
-    }
 
-    const allCardsViewed = newChoices.every(choice => choice !== null);
-    if (allCardsViewed) {
-      setIsComplete(true);
+      // Проверяем, все ли карточки просмотрены
+      const allCardsViewed = newChoices.every(choice => choice !== null);
+      if (allCardsViewed) {
+        setIsComplete(true);
+      }
     }
   };
 
@@ -89,6 +100,10 @@ function App() {
       setShowAgutinMeme(false);
       setIsAgutinLeaving(false);
     }, 500);
+  };
+
+  const handleSadMemeClick = () => {
+    setShowSadMeme(false);
   };
 
   const handleRestart = () => {
@@ -101,6 +116,9 @@ function App() {
     setIsComplete(false);
     setClickedButton(null);
     setLuckyNumber(Math.floor(Math.random() * 5) + 1);
+    setShowAgutinMeme(false);
+    setShowSadMeme(false);
+    setIsAgutinLeaving(false);
   };
 
   if (shuffledPhrases.length === 0) {
@@ -139,6 +157,14 @@ function App() {
           alt="Агутин радуется" 
           className={`agutin-meme ${isAgutinLeaving ? 'slide-up' : 'slide-down'}`}
           onClick={handleAgutinClick}
+        />
+      )}
+      {showSadMeme && (
+        <img
+          src={sadMeme}
+          alt="Sad Meme"
+          className={`sad-meme ${showSadMeme ? 'slide-up-left' : 'slide-down-left'}`}
+          onClick={handleSadMemeClick}
         />
       )}
       <div className="container">

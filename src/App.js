@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import ReactConfetti from 'react-confetti';
 import { phrases } from './data';
 import './App.css';
+import agutinMeme from './images/agutin.jpg';
 
 function App() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -11,6 +12,8 @@ function App() {
   const [isComplete, setIsComplete] = useState(false);
   const [clickedButton, setClickedButton] = useState(null);
   const [userChoices, setUserChoices] = useState([]);
+  const [showAgutinMeme, setShowAgutinMeme] = useState(false);
+  const [isAgutinLeaving, setIsAgutinLeaving] = useState(false);
 
   const getRandomPhrases = () => {
     const shuffled = [...phrases].sort(() => Math.random() - 0.5);
@@ -62,16 +65,27 @@ function App() {
     setUserChoices(newChoices);
     setClickedButton(isCorrect ? 'correct' : 'incorrect');
     
-    // Увеличиваем счетчик только если это первый выбор для этой карточки
+    // Показываем мем при первом правильном ответе
     if (isCorrect && userChoices[currentIndex] === null) {
       setGuessedCount(guessedCount + 1);
+      if (guessedCount === 0) {
+        setShowAgutinMeme(true);
+        setIsAgutinLeaving(false);
+      }
     }
 
-    // Проверяем, все ли карточки были просмотрены
     const allCardsViewed = newChoices.every(choice => choice !== null);
     if (allCardsViewed) {
       setIsComplete(true);
     }
+  };
+
+  const handleAgutinClick = () => {
+    setIsAgutinLeaving(true);
+    setTimeout(() => {
+      setShowAgutinMeme(false);
+      setIsAgutinLeaving(false);
+    }, 500);
   };
 
   const handleRestart = () => {
@@ -115,6 +129,14 @@ function App() {
 
   return (
     <div className="app">
+      {showAgutinMeme && (
+        <img 
+          src={agutinMeme} 
+          alt="Агутин радуется" 
+          className={`agutin-meme ${isAgutinLeaving ? 'slide-up' : 'slide-down'}`}
+          onClick={handleAgutinClick}
+        />
+      )}
       <div className="container">
         <h1>Угадай, who это сказал</h1>
         

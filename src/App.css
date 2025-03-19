@@ -273,4 +273,39 @@ button {
   color: #000;
   font-size: 16px;
   font-weight: 400;
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+.agutin-meme {
+  position: fixed;
+  right: 0;
+  z-index: 1000;
+  width: 300px;
+  height: auto;
+  cursor: pointer;
+}
+
+.agutin-meme.slide-down {
+  animation: slideDown 0.5s ease-in-out forwards;
+}
+
+.agutin-meme.slide-up {
+  animation: slideUp 0.5s ease-in-out forwards;
 } 

@@ -16,7 +16,6 @@ function App() {
   const [showAgutinMeme, setShowAgutinMeme] = useState(false);
   const [showSadMeme, setShowSadMeme] = useState(false);
   const [isAgutinLeaving, setIsAgutinLeaving] = useState(false);
-  const [luckyNumber, setLuckyNumber] = useState(null);
   const [isSadLeaving, setIsSadLeaving] = useState(false);
 
   const getRandomPhrases = () => {
@@ -28,7 +27,6 @@ function App() {
     const phrases = getRandomPhrases();
     setShuffledPhrases(phrases);
     setUserChoices(new Array(phrases.length).fill(null));
-    setLuckyNumber(Math.floor(Math.random() * 5) + 1);
   }, []);
 
   const handlePrevious = useCallback(() => {
@@ -122,7 +120,6 @@ function App() {
     setGuessedCount(0);
     setIsComplete(false);
     setClickedButton(null);
-    setLuckyNumber(Math.floor(Math.random() * 5) + 1);
     setShowAgutinMeme(false);
     setShowSadMeme(false);
     setIsAgutinLeaving(false);

@@ -1,6 +1,6 @@
 {
   "name": "whoeta",
-  "homepage": "https://sartrcrow.github.io/whoeta",
+  "homepage": "/whoeta",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -17,7 +17,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint src --ext .js,.jsx,.ts,.tsx",
+    "prepare": "husky"
   },
   "eslintConfig": {
     "extends": [
@@ -35,6 +37,17 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.0"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "npm test -- --findRelatedTests --watchAll=false"
     ]
   }
 }

@@ -218,10 +218,10 @@ button {
 }
 
 .guessed-count {
-  font-size: var(--font-size-large);
+  font-size: var(--font-size-xlarge);
   font-weight: 600;
   color: var(--dark-color);
-  margin-bottom: var(--indent-medium);
+  margin: var(--indent-xlarge) 0;
 }
 
 .loading {

@@ -193,20 +193,24 @@ function App() {
   }
 
   if (isComplete) {
+    // Получаем количество правильных ответов
+    const correctCount = userChoices.filter(choice => choice === 'correct').length;
+    const showConfetti = correctCount >= 5; // Показываем конфетти для результатов 5-10
+    
     return (
       <div className="container">
-        {guessedCount === shuffledPhrases.length && (
+        {showConfetti && (
           <ReactConfetti
             width={window.innerWidth}
             height={window.innerHeight}
             recycle={false}
-            numberOfPieces={200}
+            numberOfPieces={100}
             gravity={0.3}
-            colors={['#FFD700', '#FFA500', '#FF69B4', '#87CEEB', '#98FB98']}
+            colors={['#B4E035', '#FFB7B2', '#FF52A9', '#8EADFF', '#58DB8D']}
             style={{ position: 'fixed', top: 0, left: 0, pointerEvents: 'none' }}
           />
         )}
-        <h1>Типа закончились карточки</h1>
+        {/* <h1>Типа закончились карточки</h1> */}
         <p className="guessed-count">Угадано: {guessedCount} из {shuffledPhrases.length}</p>
         <button onClick={handleRestart} className="restart-button">
           Начать заново? Да!

@@ -3,6 +3,17 @@
   --secondary-color: #FF6C61;
   --tertiary-color: #FF4F4F;
   --accent-color: #384587;
+  --font-size-small: 16px;
+  --font-size-medium: 20px;
+  --font-size-large: 24px;
+  --font-size-xlarge: 32px;
+  --padding-large: 40px 80px;
+  --padding-medium: 20px 30px;
+  --padding-small: 10px 20px;
+  --indent-small: 16px;
+  --indent-medium: 20px;
+  --indent-large: 30px;
+  --indent-xlarge: 40px;
 }
 
 body {

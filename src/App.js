@@ -176,7 +176,7 @@ function App() {
         />
       )}
       <div className="container">
-        <h1>Угадай, who это сказал</h1>
+        <h1>Угадай, who ета сказал</h1>
         
         <div className="progress">
           <span>Карточка {currentIndex + 1} из {shuffledPhrases.length}</span>
@@ -234,7 +234,7 @@ function App() {
               →
             </button>
           </div>
-          <p>Ещё карточки можно листать стрелками ← и → на клавиатуре</p>
+          <p>Карточки можно листать стрелками туда-сюда на клавиатуре</p>
           <p>Сделано с любовью и исключительно фо фан</p>
         </div>
       </div>

@@ -3,7 +3,7 @@
 .container {
   max-width: 600px;
   margin: 0 auto;
-  padding: 40px 80px;
+  padding: var(--padding-large);
   font-family: 'Roboto Mono', 'Fira Code', monospace;
   text-align: center;
   display: flex;
@@ -11,17 +11,17 @@
 }
 
 h1 {
-  font-size: 20px;
+  font-size: var(--font-size-medium);
   font-weight: 600;
   color: #1a1a1a;
-  margin-bottom: 56px;
+  margin-bottom: var(--indent-large);
 }
 
 .progress {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 40px;
-  font-size: 18px;
+  margin-bottom: var(--indent-large);
+  font-size: var(--font-size-medium);
   font-weight: 600;
   color: #1a1a1a;
 }
@@ -92,14 +92,14 @@ h1 {
 
 .card-front {
   justify-content: space-between;
-  font-size: 20px;
+  font-size: var(--font-size-large);
   background-color: #fff;
   width: 100%;
   height: 160px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px 30px;
+  padding: var(--padding-medium);
   border: 4px solid #000;
 }
 
@@ -109,18 +109,18 @@ h1 {
 }
 
 .card-front .author {
-  font-size: 32px;
+  font-size: var(--font-size-medium);
   font-weight: 600;
-  margin-top: 20px;
+  margin-top: var(--indent-medium);
   color: #1a1a1a;
 }
 
-.card-back {
+/* .card-back {
   justify-content: center;
   color: #fff;
   font-size: 32px;
   background-color: #384587;
-}
+} */
 /* 
 .card-front *,
 .card-back * {
@@ -130,24 +130,24 @@ h1 {
 } */
 
 .hint {
-  font-size: 16px;
+  font-size: var(--font-size-small);
   color: #000;
-  margin-top: 20px;
+  margin-top: var(--indent-medium);
 }
 
 .guess-buttons {
   display: flex;
   justify-content: center;
-  gap: 16px;
+  gap: var(--indent-small);
 }
 
 button {
   font-family: 'Roboto Mono', 'Fira Code', monospace;
-  padding: 10px 20px;
+  padding: var(--padding-small);
 }
 
 .guess-button {
-  font-size: 16px;
+  font-size: var(--font-size-small);
   font-weight: 600;
   border: 4px solid #000;
   cursor: pointer;
@@ -202,7 +202,7 @@ button {
 
 .restart-button {
   padding: 30px 40px;
-  font-size: 32px;
+  font-size: var(--font-size-xlarge);
   border: 4px solid #000;
   cursor: pointer;
   background-color: var(--primary-color);
@@ -218,10 +218,10 @@ button {
 }
 
 .guessed-count {
-  font-size: 24px;
+  font-size: var(--font-size-large);
   font-weight: 600;
   color: #000;
-  margin-bottom: 20px;
+  margin-bottom: var(--indent-medium);
 }
 
 .loading {
@@ -229,7 +229,7 @@ button {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  font-size: 24px;
+  font-size: var(--font-size-xlarge);
   color: #1a1a1a;
 }
 
@@ -247,8 +247,8 @@ button {
 .footer .navigation-buttons {
   display: flex;
   justify-content: center;
-  gap: 16px;
-  margin-bottom: 20px;
+  gap: var(--indent-small);
+  margin-bottom: var(--indent-medium);
 }
 
 .footer .nav-button {
@@ -278,16 +278,15 @@ button {
 }
 
 .footer p {
-  margin: 16px 0;
   color: #000;
-  font-size: 16px;
+  font-size: var(--font-size-small);
   font-weight: 600;
 }
 
 .footer p:last-child {
-  margin-top: 40px;
+  margin-top: var(--indent-medium);
   color: #000;
-  font-size: 16px;
+  font-size: var(--font-size-small);
   font-weight: 400;
 }
 

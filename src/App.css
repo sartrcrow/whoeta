@@ -97,7 +97,6 @@ h1 {
   transition: all 0.3s;
   box-shadow: none;
   border: 4px solid #000;
-  background-color: #fff;
 }
 
 .card-front:hover,
@@ -106,21 +105,33 @@ h1 {
   box-shadow: none;
 }
 
-.card-front,
+.card-front p,
 .card-back p {
   text-wrap: balance;
+
+  position: relative;
+  z-index: 1;
 }
 
 .card-front {
   justify-content: space-between;
   font-size: 20px;
+  background-color: #fff;
 }
 
 .card-back {
   justify-content: center;
-  color: #1a1a1a;
+  color: #fff;
   font-size: 32px;
+  background-color: #384587;
 }
+/* 
+.card-front *,
+.card-back * {
+  animation: none !important;
+  transform: none !important;
+  transition: none !important;
+} */
 
 .hint {
   font-size: 16px;
@@ -140,7 +151,6 @@ button {
 }
 
 .guess-button {
-  
   font-size: 16px;
   font-weight: 600;
   border: 4px solid #000;
@@ -162,13 +172,15 @@ button {
 }
 
 .guess-button.correct:hover:not(:disabled) {
-  background-color: var(--secondary-color);
+  color: #fff;
+  background-color: var(--accent-color);
   transform: translate(2px, 2px);
   box-shadow: rgb(19, 19, 19) 2px 2px 0px 0px;
 }
 
 .guess-button.correct.active {
-  background-color: var(--secondary-color);
+  color: #fff;
+  background-color: var(--accent-color);
   transform: translate(2px, 2px);
   box-shadow: rgb(19, 19, 19) 2px 2px 0px 0px;
 }
@@ -179,13 +191,15 @@ button {
 }
 
 .guess-button.incorrect:hover:not(:disabled) {
-  background-color: var(--secondary-color);
+  color: #fff;
+  background-color: var(--accent-color);
   transform: translate(2px, 2px);
   box-shadow: rgb(19, 19, 19) 2px 2px 0px 0px;
 }
 
 .guess-button.incorrect.active {
-  background-color: var(--secondary-color);
+  color: #fff;
+  background-color: var(--accent-color);
   transform: translate(2px, 2px);
   box-shadow: rgb(19, 19, 19) 2px 2px 0px 0px;
 }
@@ -242,7 +256,6 @@ button {
 }
 
 .footer .nav-button {
-  
   font-size: 32px;
   color: #000;
   background-color: var(--primary-color);
@@ -317,7 +330,7 @@ button {
   animation: slideUp 0.5s ease-in-out forwards;
 }
 
-@keyframes bounce {
+/* @keyframes bounce {
   0%, 100% {
     transform: translateY(0);
   }
@@ -329,9 +342,9 @@ button {
 .card.shaking .card-front,
 .card.shaking .card-back {
   animation: bounce 0.5s ease-in-out;
-}
+} */
 
-@keyframes slideInNext {
+/* @keyframes slideInNext {
   0% {
     transform: translateX(100%);
   }
@@ -385,7 +398,7 @@ button {
 .card.sliding-right .card-front,
 .card.sliding-right .card-back {
   animation: slideRight 0.5s ease-in-out;
-}
+} */
 
 .sad-meme {
   position: fixed;

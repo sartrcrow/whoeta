@@ -1,2 +1,8 @@
 node_modules
 build
+
+# Локальные правила cursor rules
+.cursor
+.cursor-rules
+.cursor-rules-local
+cursor-rules/

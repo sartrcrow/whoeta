@@ -315,6 +315,12 @@ button {
   width: 300px;
   height: auto;
   cursor: pointer;
+  transition: all 0.4s ease-in-out;
+}
+
+.agutin-meme:hover {
+  transform: scale(1.05);
+  rotate: 15deg;
 }
 
 .agutin-meme.slide-down {
@@ -403,6 +409,12 @@ button {
   width: 300px;
   height: auto;
   cursor: pointer;
+  transition: all 0.4s ease-in-out;
+}
+
+.sad-meme:hover {
+  transform: scale(1.05);
+  rotate: 15deg;
 }
 
 .sad-meme.slide-up-left {

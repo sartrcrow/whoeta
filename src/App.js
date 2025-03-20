@@ -107,13 +107,13 @@ function App() {
       // Увеличиваем счетчик только если это первый правильный ответ
       if (isCorrect && userChoices[currentIndex] === null) {
         setGuessedCount(prevCount => prevCount + 1);
-        // 30% шанс показать мем при правильном ответе
+        // 20% шанс показать мем при правильном ответе
         if (Math.random() < 0.2) {
           setShowAgutinMeme(true);
         }
       } else if (!isCorrect) {
-        // 30% шанс показать грустный мем при неправильном ответе
-        if (Math.random() < 0.3) {
+        // 20% шанс показать грустный мем при неправильном ответе
+        if (Math.random() < 0.2) {
           setShowSadMeme(true);
         }
       }

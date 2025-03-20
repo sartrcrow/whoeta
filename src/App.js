@@ -33,7 +33,7 @@ function App() {
   const handlePrevious = useCallback(() => {
     if (currentIndex > 0) {
       setCurrentIndex(prev => prev - 1);
-      setIsFlipped(false);
+      setIsFlipped(userChoices[currentIndex - 1] !== null);
       setClickedButton(userChoices[currentIndex - 1]);
     }
   }, [currentIndex, userChoices]);
@@ -41,7 +41,7 @@ function App() {
   const handleNext = useCallback(() => {
     if (currentIndex < shuffledPhrases.length - 1) {
       setCurrentIndex(prev => prev + 1);
-      setIsFlipped(false);
+      setIsFlipped(userChoices[currentIndex + 1] !== null);
       setClickedButton(userChoices[currentIndex + 1]);
     }
   }, [currentIndex, shuffledPhrases.length, userChoices]);

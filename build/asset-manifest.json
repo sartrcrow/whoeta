@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/%D0%B8%D0%BC%D1%8F-%D1%80%D0%B5%D0%BF%D0%BE%D0%B7%D0%B8%D1%82%D0%BE%D1%80%D0%B8%D1%8F/static/css/main.be992339.css",
-    "main.js": "/%D0%B8%D0%BC%D1%8F-%D1%80%D0%B5%D0%BF%D0%BE%D0%B7%D0%B8%D1%82%D0%BE%D1%80%D0%B8%D1%8F/static/js/main.77e55d8c.js",
-    "static/media/sad-meme.png": "/%D0%B8%D0%BC%D1%8F-%D1%80%D0%B5%D0%BF%D0%BE%D0%B7%D0%B8%D1%82%D0%BE%D1%80%D0%B8%D1%8F/static/media/sad-meme.704c150a11ccdf9f3bf2.png",
-    "static/media/agutin.jpg": "/%D0%B8%D0%BC%D1%8F-%D1%80%D0%B5%D0%BF%D0%BE%D0%B7%D0%B8%D1%82%D0%BE%D1%80%D0%B8%D1%8F/static/media/agutin.02bb9a237cde3776cd1e.jpg",
-    "index.html": "/%D0%B8%D0%BC%D1%8F-%D1%80%D0%B5%D0%BF%D0%BE%D0%B7%D0%B8%D1%82%D0%BE%D1%80%D0%B8%D1%8F/index.html",
-    "main.be992339.css.map": "/%D0%B8%D0%BC%D1%8F-%D1%80%D0%B5%D0%BF%D0%BE%D0%B7%D0%B8%D1%82%D0%BE%D1%80%D0%B8%D1%8F/static/css/main.be992339.css.map",
-    "main.77e55d8c.js.map": "/%D0%B8%D0%BC%D1%8F-%D1%80%D0%B5%D0%BF%D0%BE%D0%B7%D0%B8%D1%82%D0%BE%D1%80%D0%B8%D1%8F/static/js/main.77e55d8c.js.map"
+    "main.css": "/whoeta/static/css/main.be992339.css",
+    "main.js": "/whoeta/static/js/main.8137b3a2.js",
+    "static/media/sad-meme.png": "/whoeta/static/media/sad-meme.704c150a11ccdf9f3bf2.png",
+    "static/media/agutin.jpg": "/whoeta/static/media/agutin.02bb9a237cde3776cd1e.jpg",
+    "index.html": "/whoeta/index.html",
+    "main.be992339.css.map": "/whoeta/static/css/main.be992339.css.map",
+    "main.8137b3a2.js.map": "/whoeta/static/js/main.8137b3a2.js.map"
   },
   "entrypoints": [
     "static/css/main.be992339.css",
-    "static/js/main.77e55d8c.js"
+    "static/js/main.8137b3a2.js"
   ]
 }

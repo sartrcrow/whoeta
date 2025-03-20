@@ -375,4 +375,56 @@ button {
 
 .light-text {
   color: var(--light-color);
+  font-weight: 300;
+}
+
+/* Стили для GIF при идеальном результате */
+.perfect-score-container {
+  width: 100%;
+  margin-top: 30px;
+  animation: slideUpFromBottom 0.8s ease-in-out forwards;
+  overflow: hidden;
+}
+
+.perfect-score-gif {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+/* Стили для GIF при среднем результате */
+.medium-score-container {
+  width: 100%;
+  margin-top: 30px;
+  animation: slideUpFromBottom 0.8s ease-in-out forwards;
+  overflow: hidden;
+}
+
+.medium-score-gif {
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Стили для GIF при нулевом результате */
+.zero-score-container {
+  width: 100%;
+  margin-top: 30px;
+  animation: slideUpFromBottom 0.8s ease-in-out forwards;
+  overflow: hidden;
+}
+
+.zero-score-gif {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+@keyframes slideUpFromBottom {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 } 

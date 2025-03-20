@@ -17,6 +17,37 @@ function App() {
   const [showSadMeme, setShowSadMeme] = useState(false);
   const [isAgutinLeaving, setIsAgutinLeaving] = useState(false);
   const [isSadLeaving, setIsSadLeaving] = useState(false);
+  const [perfectScoreGif, setPerfectScoreGif] = useState('');
+  const [showPerfectScoreGif, setShowPerfectScoreGif] = useState(false);
+  const [zeroScoreGif, setZeroScoreGif] = useState('');
+  const [showZeroScoreGif, setShowZeroScoreGif] = useState(false);
+  const [mediumScoreGif, setMediumScoreGif] = useState('');
+  const [showMediumScoreGif, setShowMediumScoreGif] = useState(false);
+  
+  // Массив с GIF для идеального результата (10 из 10)
+  const perfectScoreGifs = [
+    'https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdWtkbHRsd2Vzdnllbnpqd2cwNWQ2N2kyajB1ejE4NnE2MzQ3ZXhlciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/b7MtjZ8uhWMaHMsueA/giphy.gif',
+    'https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzZodWUxNnhsMDN1Nm40cTJ1aGYzZzA5dXI1YXR0a3hhMnUyanRxMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/K0zN8vrXUen8PMBaeR/giphy.gif',
+    'https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMnQ5dmRiY29hZ2FiNnV2aTJ6OXIwNTg2cm5zM3Awbm5tNXBtdDR1ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/2GN4OAIdsMDv10jAVn/giphy.gif',
+    'https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNm5sNGJ2emI2Y3BnYWo3OHl3cXZtZDd4ZmJyMGFscTFxeDAxdjlidSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/6pSJGZW0ZmbUA/giphy.gif'
+  ];
+  
+  // Массив с GIF для среднего результата (5-9 из 10)
+  const mediumScoreGifs = [
+    'https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExaG4zNDg0Z2RmdWQ2a3E2MHRqajE5cmUwYWRvczZuMmVybHN1Z3RkbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xoHntNXFYkfzGAftEv/giphy.gif',
+    'https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbXNjZGFzend3Mmtib2ZrcnNsOW0wZnhhcG9ubXh3MnRyZDd5ZHdqdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/SVH9y2LQUVVCRcqD7o/giphy.gif',
+    'https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ2lndDgxbTd5NHhjNGptazhmNDZteXR1c3d4MWR3YWZjbmI5bWY1aCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/jTByV2aZDFvuU/giphy.gif',
+    'https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNm5sNGJ2emI2Y3BnYWo3OHl3cXZtZDd4ZmJyMGFscTFxeDAxdjlidSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/6pSJGZW0ZmbUA/giphy.gif'
+  ];
+  
+  // Массив с GIF для плохого результата (0-4 из 10)
+  const zeroScoreGifs = [
+    'https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExNDkyY2U4OHZmcTF4dTk5cWN4enQ3cG81NDZvczdnbzVnMDk0OXFraSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/qiFchLT8Gora8/giphy.gif',
+    'https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExYmtsNndsc3hheHViMWdmYWZ4dXQ0MDZzaTB1cm1iZ2kwN3kwMHcxOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/MZocLC5dJprPTcrm65/giphy.gif',
+    'https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMTR1bjVzNHduY2VlbTgxdm04YzZsYjd5dWR2M2dwbjNodDMwYjR2MiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/CWN0uW6ELn3pK/giphy.gif',
+    'https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExd2hrcTl0MzZwOHMyeHk4aWcwbmk3NjF3a3Y5a2lzYWhlYm5rcHpyYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/IKjbJJmKtWO7Uj4lul/giphy.gif',
+    'https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHB3ZG8zNHpmbHZua292cjVqMjB2cGlxd2ExbzQ0N2N0ejU0M3BrbiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/LjaYDVWiABfvbLQENN/giphy.gif'
+  ];
 
   const getRandomPhrases = () => {
     const shuffled = [...phrases].sort(() => Math.random() - 0.5);
@@ -77,7 +108,7 @@ function App() {
       if (isCorrect && userChoices[currentIndex] === null) {
         setGuessedCount(prevCount => prevCount + 1);
         // 30% шанс показать мем при правильном ответе
-        if (Math.random() < 0.3) {
+        if (Math.random() < 0.2) {
           setShowAgutinMeme(true);
         }
       } else if (!isCorrect) {
@@ -91,6 +122,31 @@ function App() {
       const allCardsViewed = newChoices.every(choice => choice !== null);
       if (allCardsViewed) {
         setIsComplete(true);
+        
+        // Проверяем количество правильных ответов
+        const correctCount = newChoices.filter(choice => choice === 'correct').length;
+        
+        // Выбираем и показываем GIF в зависимости от результата
+        setTimeout(() => {
+          // Идеальный результат (10 из 10)
+          if (correctCount === shuffledPhrases.length) {
+            const randomGif = perfectScoreGifs[Math.floor(Math.random() * perfectScoreGifs.length)];
+            setPerfectScoreGif(randomGif);
+            setShowPerfectScoreGif(true);
+          }
+          // Средний результат (5-9 из 10)
+          else if (correctCount >= 5) {
+            const randomGif = mediumScoreGifs[Math.floor(Math.random() * mediumScoreGifs.length)];
+            setMediumScoreGif(randomGif);
+            setShowMediumScoreGif(true);
+          }
+          // Плохой результат (0-4 из 10)
+          else {
+            const randomGif = zeroScoreGifs[Math.floor(Math.random() * zeroScoreGifs.length)];
+            setZeroScoreGif(randomGif);
+            setShowZeroScoreGif(true);
+          }
+        }, 500);
       }
     }
   };
@@ -124,6 +180,12 @@ function App() {
     setShowSadMeme(false);
     setIsAgutinLeaving(false);
     setIsSadLeaving(false);
+    setPerfectScoreGif('');
+    setShowPerfectScoreGif(false);
+    setZeroScoreGif('');
+    setShowZeroScoreGif(false);
+    setMediumScoreGif('');
+    setShowMediumScoreGif(false);
   };
 
   if (shuffledPhrases.length === 0) {
@@ -133,20 +195,52 @@ function App() {
   if (isComplete) {
     return (
       <div className="container">
-        <ReactConfetti
-          width={window.innerWidth}
-          height={window.innerHeight}
-          recycle={false}
-          numberOfPieces={200}
-          gravity={0.3}
-          colors={['#FFD700', '#FFA500', '#FF69B4', '#87CEEB', '#98FB98']}
-          style={{ position: 'fixed', top: 0, left: 0, pointerEvents: 'none' }}
-        />
+        {guessedCount === shuffledPhrases.length && (
+          <ReactConfetti
+            width={window.innerWidth}
+            height={window.innerHeight}
+            recycle={false}
+            numberOfPieces={200}
+            gravity={0.3}
+            colors={['#FFD700', '#FFA500', '#FF69B4', '#87CEEB', '#98FB98']}
+            style={{ position: 'fixed', top: 0, left: 0, pointerEvents: 'none' }}
+          />
+        )}
         <h1>Типа закончились карточки</h1>
         <p className="guessed-count">Угадано: {guessedCount} из {shuffledPhrases.length}</p>
         <button onClick={handleRestart} className="restart-button">
           Начать заново? Да!
         </button>
+        
+        {showPerfectScoreGif && perfectScoreGif && (
+          <div className="perfect-score-container">
+            <img 
+              src={perfectScoreGif}
+              alt="Поздравляем с идеальным результатом!"
+              className="perfect-score-gif"
+            />
+          </div>
+        )}
+        
+        {showMediumScoreGif && mediumScoreGif && (
+          <div className="medium-score-container">
+            <img 
+              src={mediumScoreGif}
+              alt="Неплохой результат!"
+              className="medium-score-gif"
+            />
+          </div>
+        )}
+        
+        {showZeroScoreGif && zeroScoreGif && (
+          <div className="zero-score-container">
+            <img 
+              src={zeroScoreGif}
+              alt="Неудачный результат"
+              className="zero-score-gif"
+            />
+          </div>
+        )}
       </div>
     );
   }

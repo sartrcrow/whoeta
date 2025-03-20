@@ -176,7 +176,7 @@ function App() {
         />
       )}
       <div className="container">
-        <h1>Угадай, who ета сказал</h1>
+        <h1>угадай, <span className="light-text">who ета</span> сказал</h1>
         
         <div className="progress">
           <span>Карточка {currentIndex + 1} из {shuffledPhrases.length}</span>

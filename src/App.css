@@ -13,7 +13,7 @@
 h1 {
   font-size: var(--font-size-medium);
   font-weight: 600;
-  color: #1a1a1a;
+  color: var(--dark-color);
   margin-bottom: var(--indent-large);
 }
 
@@ -23,7 +23,7 @@ h1 {
   margin-bottom: var(--indent-large);
   font-size: var(--font-size-medium);
   font-weight: 600;
-  color: #1a1a1a;
+  color: var(--dark-color);
 }
 
 .card-container {
@@ -56,8 +56,8 @@ h1 {
   position: absolute;
   width: 100%;
   height: 100%;
-  border: 4px solid #000;
-  background-color: #fff;
+  border: 4px solid var(--dark-color);
+  background-color: var(--light-color);
   transform-origin: center center;
   z-index: -1;
   transition: 0.15s ease;
@@ -93,14 +93,14 @@ h1 {
 .card-front {
   justify-content: space-between;
   font-size: var(--font-size-large);
-  background-color: #fff;
+  background-color: var(--light-color);
   width: 100%;
   height: 160px;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: var(--padding-medium);
-  border: 4px solid #000;
+  border: 4px solid var(--dark-color);
 }
 
 .card-front p {
@@ -112,12 +112,12 @@ h1 {
   font-size: var(--font-size-medium);
   font-weight: 600;
   margin-top: var(--indent-medium);
-  color: #1a1a1a;
+  color: var(--dark-color);
 }
 
 /* .card-back {
   justify-content: center;
-  color: #fff;
+  color: var(--light-color);
   font-size: 32px;
   background-color: #384587;
 } */
@@ -131,7 +131,7 @@ h1 {
 
 .hint {
   font-size: var(--font-size-small);
-  color: #000;
+  color: var(--dark-color);
   margin-top: var(--indent-medium);
 }
 
@@ -149,9 +149,9 @@ button {
 .guess-button {
   font-size: var(--font-size-small);
   font-weight: 600;
-  border: 4px solid #000;
+  border: 4px solid var(--dark-color);
   cursor: pointer;
-  color: #000;
+  color: var(--dark-color);
   background-color: #FF8177;
   transition: all 0.3s;
   box-shadow: rgb(19, 19, 19) 4px 4px 0px 0px;
@@ -164,18 +164,18 @@ button {
 
 .guess-button.correct {
   background-color: var(--primary-color);
-  border: 4px solid #000;
+  border: 4px solid var(--dark-color);
 }
 
 .guess-button.correct:hover:not(:disabled) {
-  color: #fff;
+  color: var(--light-color);
   background-color: var(--accent-color);
   transform: translate(2px, 2px);
   box-shadow: rgb(19, 19, 19) 2px 2px 0px 0px;
 }
 
 .guess-button.correct.active {
-  color: #fff;
+  color: var(--light-color);
   background-color: var(--accent-color);
   transform: translate(2px, 2px);
   box-shadow: rgb(19, 19, 19) 2px 2px 0px 0px;
@@ -183,18 +183,18 @@ button {
 
 .guess-button.incorrect {
   background-color: var(--primary-color);
-  border: 4px solid #000;
+  border: 4px solid var(--dark-color);
 }
 
 .guess-button.incorrect:hover:not(:disabled) {
-  color: #fff;
+  color: var(--light-color);
   background-color: var(--accent-color);
   transform: translate(2px, 2px);
   box-shadow: rgb(19, 19, 19) 2px 2px 0px 0px;
 }
 
 .guess-button.incorrect.active {
-  color: #fff;
+  color: var(--light-color);
   background-color: var(--accent-color);
   transform: translate(2px, 2px);
   box-shadow: rgb(19, 19, 19) 2px 2px 0px 0px;
@@ -203,10 +203,10 @@ button {
 .restart-button {
   padding: 30px 40px;
   font-size: var(--font-size-xlarge);
-  border: 4px solid #000;
+  border: 4px solid var(--dark-color);
   cursor: pointer;
   background-color: var(--primary-color);
-  color: #000;
+  color: var(--dark-color);
   transition: all 0.3s;
   box-shadow: rgb(19, 19, 19) 8px 8px 0px 0px;
 }
@@ -220,7 +220,7 @@ button {
 .guessed-count {
   font-size: var(--font-size-large);
   font-weight: 600;
-  color: #000;
+  color: var(--dark-color);
   margin-bottom: var(--indent-medium);
 }
 
@@ -230,7 +230,7 @@ button {
   align-items: center;
   height: 100vh;
   font-size: var(--font-size-xlarge);
-  color: #1a1a1a;
+  color: var(--dark-color);
 }
 
 .footer {
@@ -238,10 +238,10 @@ button {
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 20px;
+  padding: 20px 20px 0;
   text-align: center;
   background-color: var(--primary-color);
-  border-top: 4px solid #000;
+  border-top: 4px solid var(--dark-color);
 }
 
 .footer .navigation-buttons {
@@ -253,9 +253,9 @@ button {
 
 .footer .nav-button {
   font-size: 32px;
-  color: #000;
+  color: var(--dark-color);
   background-color: var(--primary-color);
-  border: 4px solid #000;
+  border: 4px solid var(--dark-color);
   cursor: pointer;
   transition: all 0.3s;
   box-shadow: rgb(19, 19, 19) 4px 4px 0px 0px;
@@ -278,14 +278,14 @@ button {
 }
 
 .footer p {
-  color: #000;
+  color: var(--dark-color);
   font-size: var(--font-size-small);
   font-weight: 600;
 }
 
 .footer p:last-child {
   margin-top: var(--indent-medium);
-  color: #000;
+  color: var(--dark-color);
   font-size: var(--font-size-small);
   font-weight: 400;
 }
@@ -429,4 +429,8 @@ button {
   100% {
     bottom: -100%;
   }
+}
+
+.light-text {
+  color: var(--light-color);
 } 

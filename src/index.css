@@ -1,12 +1,19 @@
 :root {
+  /* Desktop variables (> 768px) */
   --primary-color: #FF8177;
   --secondary-color: #FF6C61;
   --tertiary-color: #FF4F4F;
   --accent-color: #384587;
+  --dark-color: #080C1A;
+  --light-color: #fff;
+  
+  /* Desktop typography */
   --font-size-small: 16px;
   --font-size-medium: 20px;
   --font-size-large: 24px;
   --font-size-xlarge: 32px;
+  
+  /* Desktop spacing */
   --padding-large: 40px 80px;
   --padding-medium: 20px 30px;
   --padding-small: 10px 20px;
@@ -14,6 +21,47 @@
   --indent-medium: 20px;
   --indent-large: 30px;
   --indent-xlarge: 40px;
+}
+
+@media (max-width: 768px) {
+  :root {
+    /* Mobile typography */
+    --font-size-small: 14px;
+    --font-size-medium: 16px;
+    --font-size-large: 20px;
+    --font-size-xlarge: 24px;
+    
+    /* Mobile spacing */
+    --padding-large: 20px 20px;
+    --padding-medium: 15px 20px;
+    --padding-small: 8px 16px;
+    --indent-small: 12px;
+    --indent-medium: 16px;
+    --indent-large: 20px;
+    --indent-xlarge: 30px;
+  }
+
+  .container {
+    padding: var(--padding-large);
+  }
+
+  .card-front {
+    height: 140px;
+    padding: var(--padding-medium);
+  }
+
+  .guess-button {
+    padding: var(--padding-small);
+  }
+
+  .footer .nav-button {
+    font-size: var(--font-size-xlarge);
+    padding: var(--padding-small);
+  }
+
+  .restart-button {
+    padding: var(--padding-medium);
+  }
 }
 
 body {

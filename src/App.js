@@ -17,6 +17,7 @@ function App() {
   const [showSadMeme, setShowSadMeme] = useState(false);
   const [isAgutinLeaving, setIsAgutinLeaving] = useState(false);
   const [luckyNumber, setLuckyNumber] = useState(null);
+  const [isSadLeaving, setIsSadLeaving] = useState(false);
 
   const getRandomPhrases = () => {
     const shuffled = [...phrases].sort(() => Math.random() - 0.5);
@@ -60,7 +61,9 @@ function App() {
   }, [handlePrevious, handleNext]);
 
   const handleCardClick = () => {
-    setIsFlipped(!isFlipped);
+    if (!isFlipped) {
+      setIsFlipped(true);
+    }
   };
 
   const handleGuess = (isCorrect) => {
@@ -103,7 +106,11 @@ function App() {
   };
 
   const handleSadMemeClick = () => {
-    setShowSadMeme(false);
+    setIsSadLeaving(true);
+    setTimeout(() => {
+      setShowSadMeme(false);
+      setIsSadLeaving(false);
+    }, 500);
   };
 
   const handleRestart = () => {
@@ -119,6 +126,7 @@ function App() {
     setShowAgutinMeme(false);
     setShowSadMeme(false);
     setIsAgutinLeaving(false);
+    setIsSadLeaving(false);
   };
 
   if (shuffledPhrases.length === 0) {
@@ -163,7 +171,7 @@ function App() {
         <img
           src={sadMeme}
           alt="Sad Meme"
-          className={`sad-meme ${showSadMeme ? 'slide-up-left' : 'slide-down-left'}`}
+          className={`sad-meme ${isSadLeaving ? 'slide-down-left' : 'slide-up-left'}`}
           onClick={handleSadMemeClick}
         />
       )}
@@ -177,19 +185,17 @@ function App() {
 
         <div className="card-container">
           <div 
-            className="card" 
+            className={`card ${isFlipped ? 'flipped' : ''}`} 
             onClick={handleCardClick}
           >
-            {!isFlipped ? (
-              <div className="card-front">
-                <p>{currentPhrase.phrase}</p>
+            <div className="card-front">
+              <p>{currentPhrase.phrase}</p>
+              {isFlipped ? (
+                <p className="author">{currentPhrase.author}</p>
+              ) : (
                 <span className="hint">Кликни, чтобы узнать автора</span>
-              </div>
-            ) : (
-              <div className="card-back">
-                <p>{currentPhrase.author}</p>
-              </div>
-            )}
+              )}
+            </div>
           </div>
 
           {isFlipped && (

@@ -45,6 +45,10 @@ h1 {
   transition: 0.15s ease;
 }
 
+.card.flipped {
+  cursor: default;
+}
+
 .card:before,
 .card:after {
   content: "";
@@ -86,37 +90,29 @@ h1 {
   justify-content: center;
 }
 
-.card-front,
-.card-back {
+.card-front {
+  justify-content: space-between;
+  font-size: 20px;
+  background-color: #fff;
   width: 100%;
   height: 160px;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px 30px;
-  transition: all 0.3s;
-  box-shadow: none;
   border: 4px solid #000;
 }
 
-.card-front:hover,
-.card-back:hover {
-  transform: none;
-  box-shadow: none;
-}
-
-.card-front p,
-.card-back p {
+.card-front p {
   text-wrap: balance;
-
-  position: relative;
-  z-index: 1;
+  margin: 0;
 }
 
-.card-front {
-  justify-content: space-between;
-  font-size: 20px;
-  background-color: #fff;
+.card-front .author {
+  font-size: 32px;
+  font-weight: 600;
+  margin-top: 20px;
+  color: #1a1a1a;
 }
 
 .card-back {

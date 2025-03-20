@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/phrases-game/static/css/main.be992339.css",
+    "main.js": "/phrases-game/static/js/main.f1aa3b78.js",
+    "static/media/sad-meme.png": "/phrases-game/static/media/sad-meme.704c150a11ccdf9f3bf2.png",
+    "static/media/agutin.jpg": "/phrases-game/static/media/agutin.02bb9a237cde3776cd1e.jpg",
+    "index.html": "/phrases-game/index.html",
+    "main.be992339.css.map": "/phrases-game/static/css/main.be992339.css.map",
+    "main.f1aa3b78.js.map": "/phrases-game/static/js/main.f1aa3b78.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.be992339.css",
+    "static/js/main.f1aa3b78.js"
+  ]
+}

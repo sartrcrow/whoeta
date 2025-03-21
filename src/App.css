@@ -388,7 +388,6 @@ button {
 
 .perfect-score-gif {
   max-width: 100%;
-  border-radius: 10px;
 }
 
 /* Стили для GIF при среднем результате */
@@ -401,7 +400,6 @@ button {
 
 .medium-score-gif {
   max-width: 100%;
-  border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
@@ -415,7 +413,6 @@ button {
 
 .zero-score-gif {
   max-width: 100%;
-  border-radius: 10px;
 }
 
 @keyframes slideUpFromBottom {

@@ -5,20 +5,12 @@ import './App.css';
 import agutinMeme from './images/agutin.png';
 import sadMeme from './images/sad-meme.png';
 
-// Компонент для анимированного числа
-const AnimatedNumber = ({ number }) => {
-  const [key, setKey] = useState(0);
-
-  useEffect(() => {
-    setKey(prev => prev + 1);
-  }, [number]);
-
-  return (
-    <span key={key} className="animated-number">
-      {number}
-    </span>
-  );
-};
+import AnimatedNumber from './components/AnimatedNumber';
+import Card from './components/Card';
+import GuessButtons from './components/GuessButtons';
+import Navigation from './components/Navigation';
+import ResultScreen from './components/ResultScreen';
+import Memes from './components/Memes';
 
 function App() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -213,54 +205,17 @@ function App() {
     const showConfetti = correctCount >= 5; // Показываем конфетти для результатов 5-10
     
     return (
-      <div className="container">
-        {showConfetti && (
-          <ReactConfetti
-            width={window.innerWidth}
-            height={window.innerHeight}
-            recycle={false}
-            numberOfPieces={100}
-            gravity={0.3}
-            colors={['#B4E035', '#FFB7B2', '#FF52A9', '#8EADFF', '#58DB8D']}
-            style={{ position: 'fixed', top: 0, left: 0, pointerEvents: 'none' }}
-          />
-        )}
-        {/* <h1>Типа закончились карточки</h1> */}
-        <p className="guessed-count">Угадано: {guessedCount} из {shuffledPhrases.length}</p>
-        <button onClick={handleRestart} className="restart-button">
-          Начать заново? Да!
-        </button>
-        
-        {showPerfectScoreGif && perfectScoreGif && (
-          <div className="perfect-score-container">
-            <img 
-              src={perfectScoreGif}
-              alt="Поздравляем с идеальным результатом!"
-              className="perfect-score-gif"
-            />
-          </div>
-        )}
-        
-        {showMediumScoreGif && mediumScoreGif && (
-          <div className="medium-score-container">
-            <img 
-              src={mediumScoreGif}
-              alt="Неплохой результат!"
-              className="medium-score-gif"
-            />
-          </div>
-        )}
-        
-        {showZeroScoreGif && zeroScoreGif && (
-          <div className="zero-score-container">
-            <img 
-              src={zeroScoreGif}
-              alt="Неудачный результат"
-              className="zero-score-gif"
-            />
-          </div>
-        )}
-      </div>
+      <ResultScreen
+        guessedCount={guessedCount}
+        totalCards={shuffledPhrases.length}
+        onRestart={handleRestart}
+        showPerfectScoreGif={showPerfectScoreGif}
+        perfectScoreGif={perfectScoreGif}
+        showMediumScoreGif={showMediumScoreGif}
+        mediumScoreGif={mediumScoreGif}
+        showZeroScoreGif={showZeroScoreGif}
+        zeroScoreGif={zeroScoreGif}
+      />
     );
   }
 
@@ -269,22 +224,15 @@ function App() {
 
   return (
     <div className="app">
-      {showAgutinMeme && (
-        <img 
-          src={agutinMeme} 
-          alt="Агутин радуется" 
-          className={`agutin-meme ${isAgutinLeaving ? 'slide-up' : 'slide-down'}`}
-          onClick={handleAgutinClick}
-        />
-      )}
-      {showSadMeme && (
-        <img
-          src={sadMeme}
-          alt="Sad Meme"
-          className={`sad-meme ${isSadLeaving ? 'slide-down-left' : 'slide-up-left'}`}
-          onClick={handleSadMemeClick}
-        />
-      )}
+      <Memes
+        showAgutinMeme={showAgutinMeme}
+        isAgutinLeaving={isAgutinLeaving}
+        onAgutinClick={handleAgutinClick}
+        showSadMeme={showSadMeme}
+        isSadLeaving={isSadLeaving}
+        onSadMemeClick={handleSadMemeClick}
+      />
+      
       <div className="container">
         <h1>угадай, <span className="light-text">who ета</span> сказал</h1>
         
@@ -294,59 +242,27 @@ function App() {
         </div>
 
         <div className="card-container">
-          <div 
-            className={`card ${isFlipped ? 'flipped' : ''}`} 
-            onClick={handleCardClick}
-          >
-            <div className="card-front">
-              <p>{currentPhrase.phrase}</p>
-              {isFlipped ? (
-                <p className="author">{currentPhrase.author}</p>
-              ) : (
-                <span className="hint">Кликни, чтобы узнать автора</span>
-              )}
-            </div>
-          </div>
+          <Card
+            phrase={currentPhrase.phrase}
+            author={currentPhrase.author}
+            isFlipped={isFlipped}
+            onCardClick={handleCardClick}
+          />
 
           {isFlipped && (
-            <div className="guess-buttons">
-              <button 
-                onClick={() => handleGuess(true)} 
-                className={`guess-button correct ${currentChoice === 'correct' ? 'active' : ''}`}
-                disabled={currentChoice === 'incorrect'}
-              >
-                Даааа ДАААА ДАВАЙ! Угадал(-а)!
-              </button>
-              <button 
-                onClick={() => handleGuess(false)} 
-                className={`guess-button incorrect ${currentChoice === 'incorrect' ? 'active' : ''}`}
-                disabled={currentChoice === 'correct'}
-              >
-                Не угадал(-а)
-              </button>
-            </div>
+            <GuessButtons
+              onGuess={handleGuess}
+              currentChoice={currentChoice}
+            />
           )}
         </div>
-        <div className="footer">
-          <div className="navigation-buttons">
-            <button 
-              onClick={handlePrevious} 
-              className="nav-button"
-              disabled={currentIndex === 0}
-            >
-              ←
-            </button>
-            <button 
-              onClick={handleNext} 
-              className="nav-button"
-              disabled={currentIndex === shuffledPhrases.length - 1}
-            >
-              →
-            </button>
-          </div>
-          <p>Карточки можно листать стрелками туда-сюда на клавиатуре</p>
-          <p>Сделано с любовью и исключительно фо фан</p>
-        </div>
+
+        <Navigation
+          onPrevious={handlePrevious}
+          onNext={handleNext}
+          currentIndex={currentIndex}
+          totalCards={shuffledPhrases.length}
+        />
       </div>
     </div>
   );

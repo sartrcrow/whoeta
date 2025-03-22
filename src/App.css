@@ -424,4 +424,36 @@ button {
     transform: translateY(0);
     opacity: 1;
   }
-} 
+}
+
+/* Анимация для чисел в прогресс-баре */
+@keyframes numberBounce {
+  0% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-15px);
+  }
+  60% {
+    transform: translateY(-7px);
+  }
+  80% {
+    transform: translateY(-3px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animated-number {
+  display: inline-block;
+  animation: numberBounce 0.5s ease-out;
+  font-size: var(--font-size-xlarge);
+  font-weight: 600;
+}
+
+.progress span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}

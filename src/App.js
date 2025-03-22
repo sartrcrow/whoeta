@@ -2,8 +2,23 @@ import React, { useState, useEffect, useCallback } from 'react';
 import ReactConfetti from 'react-confetti';
 import { phrases } from './data';
 import './App.css';
-import agutinMeme from './images/agutin.jpg';
+import agutinMeme from './images/agutin.png';
 import sadMeme from './images/sad-meme.png';
+
+// Компонент для анимированного числа
+const AnimatedNumber = ({ number }) => {
+  const [key, setKey] = useState(0);
+
+  useEffect(() => {
+    setKey(prev => prev + 1);
+  }, [number]);
+
+  return (
+    <span key={key} className="animated-number">
+      {number}
+    </span>
+  );
+};
 
 function App() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -274,8 +289,8 @@ function App() {
         <h1>угадай, <span className="light-text">who ета</span> сказал</h1>
         
         <div className="progress">
-          <span>Карточка {currentIndex + 1} из {shuffledPhrases.length}</span>
-          <span>Счет: {guessedCount}</span>
+          <span>Карточка <AnimatedNumber number={currentIndex + 1} /> из {shuffledPhrases.length}</span>
+          <span>Счет: <AnimatedNumber number={guessedCount} /></span>
         </div>
 
         <div className="card-container">

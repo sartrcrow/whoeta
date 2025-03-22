@@ -1,9 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import ReactConfetti from 'react-confetti';
 import { phrases } from './data';
 import './App.css';
-import agutinMeme from './images/agutin.png';
-import sadMeme from './images/sad-meme.png';
 
 import AnimatedNumber from './components/AnimatedNumber';
 import Card from './components/Card';

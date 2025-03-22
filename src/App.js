@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { phrases } from './data';
+import { phrases } from './data/data';
 import './App.css';
 
 import AnimatedNumber from './components/AnimatedNumber';

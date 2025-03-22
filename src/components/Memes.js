@@ -15,7 +15,7 @@ const Memes = ({
       {showAgutinMeme && (
         <img 
           src={agutinMeme} 
-          alt="Агутин радуется" 
+          alt="Агутин жмёт кнопку"
           className={`agutin-meme ${isAgutinLeaving ? 'slide-up' : 'slide-down'}`}
           onClick={onAgutinClick}
         />
@@ -23,7 +23,7 @@ const Memes = ({
       {showSadMeme && (
         <img
           src={sadMeme}
-          alt="Sad Meme"
+          alt="Кот недоумевает"
           className={`sad-meme ${isSadLeaving ? 'slide-down-left' : 'slide-up-left'}`}
           onClick={onSadMemeClick}
         />

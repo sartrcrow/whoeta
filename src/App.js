@@ -31,7 +31,6 @@ function App() {
   // Массив с GIF для идеального результата (10 из 10)
   const perfectScoreGifs = [
     'https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdWtkbHRsd2Vzdnllbnpqd2cwNWQ2N2kyajB1ejE4NnE2MzQ3ZXhlciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/b7MtjZ8uhWMaHMsueA/giphy.gif',
-    'https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzZodWUxNnhsMDN1Nm40cTJ1aGYzZzA5dXI1YXR0a3hhMnUyanRxMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/K0zN8vrXUen8PMBaeR/giphy.gif',
     'https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMnQ5dmRiY29hZ2FiNnV2aTJ6OXIwNTg2cm5zM3Awbm5tNXBtdDR1ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/2GN4OAIdsMDv10jAVn/giphy.gif',
     'https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNm5sNGJ2emI2Y3BnYWo3OHl3cXZtZDd4ZmJyMGFscTFxeDAxdjlidSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/6pSJGZW0ZmbUA/giphy.gif'
   ];

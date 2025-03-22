@@ -196,10 +196,6 @@ function App() {
   }
 
   if (isComplete) {
-    // Получаем количество правильных ответов
-    const correctCount = userChoices.filter(choice => choice === 'correct').length;
-    const showConfetti = correctCount >= 5; // Показываем конфетти для результатов 5-10
-    
     return (
       <ResultScreen
         guessedCount={guessedCount}

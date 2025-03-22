@@ -37,7 +37,7 @@ const ResultScreen = ({
         <div className="perfect-score-container">
           <img 
             src={perfectScoreGif}
-            alt="Поздравляем с идеальным результатом!"
+            alt="Кайф!"
             className="perfect-score-gif"
           />
         </div>
@@ -47,7 +47,7 @@ const ResultScreen = ({
         <div className="medium-score-container">
           <img 
             src={mediumScoreGif}
-            alt="Неплохой результат!"
+            alt="Вау, да вы эксперт!"
             className="medium-score-gif"
           />
         </div>
@@ -57,7 +57,7 @@ const ResultScreen = ({
         <div className="zero-score-container">
           <img 
             src={zeroScoreGif}
-            alt="Неудачный результат"
+            alt="Ну ничего, ничего"
             className="zero-score-gif"
           />
         </div>

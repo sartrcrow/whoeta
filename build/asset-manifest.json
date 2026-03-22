@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/whoeta/static/css/main.be992339.css",
-    "main.js": "/whoeta/static/js/main.8137b3a2.js",
+    "main.css": "/whoeta/static/css/main.8c21e056.css",
+    "main.js": "/whoeta/static/js/main.87703f7f.js",
     "static/media/sad-meme.png": "/whoeta/static/media/sad-meme.704c150a11ccdf9f3bf2.png",
-    "static/media/agutin.jpg": "/whoeta/static/media/agutin.02bb9a237cde3776cd1e.jpg",
+    "static/media/agutin.png": "/whoeta/static/media/agutin.7cd222c8cc6617db6246.png",
     "index.html": "/whoeta/index.html",
-    "main.be992339.css.map": "/whoeta/static/css/main.be992339.css.map",
-    "main.8137b3a2.js.map": "/whoeta/static/js/main.8137b3a2.js.map"
+    "main.8c21e056.css.map": "/whoeta/static/css/main.8c21e056.css.map",
+    "main.87703f7f.js.map": "/whoeta/static/js/main.87703f7f.js.map"
   },
   "entrypoints": [
-    "static/css/main.be992339.css",
-    "static/js/main.8137b3a2.js"
+    "static/css/main.8c21e056.css",
+    "static/js/main.87703f7f.js"
   ]
 }

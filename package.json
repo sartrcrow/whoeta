@@ -19,6 +19,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint src --ext .js,.jsx,.ts,.tsx",
+    "data": "node src/data/csvToJs.js",
     "prepare": "husky"
   },
   "eslintConfig": {
